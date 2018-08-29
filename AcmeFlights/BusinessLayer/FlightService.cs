@@ -27,7 +27,7 @@ namespace AcmeFlights.BusinessLayer
                 // join to convert to AvailableSeatsViewModel
                 if (seatsList != null && flightList != null)
                 {
-                    return seatsList.Join(
+                    return seatsList.Where(s=>s.VacantSeats>=vm.NumberOfPax).Join(
                         flightList, 
                         s => s.FlightCode, 
                         f => f.FlightCode,
