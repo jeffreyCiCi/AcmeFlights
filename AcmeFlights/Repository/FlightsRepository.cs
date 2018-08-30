@@ -9,18 +9,22 @@ namespace AcmeFlights.Repository
 {
     public class FlightsRepository : IFlightsRepository
     {
+        private readonly AcmeFlightsContext _ctx;
+
+        public FlightsRepository(AcmeFlightsContext context)
+        {
+            _ctx = context;
+        }
+
         public async Task<List<AvailableSeats>> GetAvailableFlightSeatsByDatesAsync(DateTime startDate, DateTime endDate)
         {
             try
             {
-                using (var ctx = new AcmeFlightsContext())
-                {
-                    return await ctx.AvailableSeats.Where(
-                        a => a.Date >= startDate 
-                        && a.Date <= endDate 
-                        && a.VacantSeats > 0)
-                        .ToListAsync();
-                }
+                return await _ctx.AvailableSeats.Where(
+                    a => a.Date >= startDate 
+                    && a.Date <= endDate 
+                    && a.VacantSeats > 0)
+                    .ToListAsync();
             }
             catch
             {
@@ -32,10 +36,7 @@ namespace AcmeFlights.Repository
         {
             try
             {
-                using (var ctx = new AcmeFlightsContext())
-                {
-                    return await ctx.Flights.ToListAsync();
-                }
+                return await _ctx.Flights.ToListAsync();
             }
             catch
             {

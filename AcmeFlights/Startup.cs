@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using AcmeFlights.Repository;
 using AcmeFlights.BusinessLayer;
+using AcmeFlights.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AcmeFlights
 {
@@ -27,8 +29,12 @@ namespace AcmeFlights
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddSingleton(typeof(IFlightsRepository), new FlightsRepository());
-            services.Add(new ServiceDescriptor(typeof(IFlightService), typeof(FlightService), ServiceLifetime.Singleton));
+
+            services.AddDbContext<AcmeFlightsContext>(
+                optionsBuilder=>optionsBuilder.UseSqlServer(Configuration.GetConnectionString("HomeDS")));
+
+            services.Add(new ServiceDescriptor(typeof(IFlightsRepository), typeof(FlightsRepository), ServiceLifetime.Scoped));
+            services.Add(new ServiceDescriptor(typeof(IFlightService), typeof(FlightService), ServiceLifetime.Scoped));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AcmeFlights.ViewModels;
 using AcmeFlights.BusinessLayer;
+using AcmeFlights.Filters;
 
 namespace AcmeFlights.Controllers
 {
@@ -23,8 +24,10 @@ namespace AcmeFlights.Controllers
         // GET: api/Flight
         [HttpGet]
         [Route("search")]
+        [ModelValidationFilter]
         public async Task<ActionResult<List<AvailableSeatsViewModel>>> AvialableSeats([FromQuery]CheckFlightsViewModel vm)
         {
+            // Since this class is decorated with [ApiController], so no need to validate model state manually
             try
             {
                 var list = await _service.GetAvailableSeatsAsync(vm);
