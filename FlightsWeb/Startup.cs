@@ -13,6 +13,7 @@ using Infrastructure.Repository;
 using DomainServices.BusinessLogic;
 using Microsoft.EntityFrameworkCore;
 using FlightsCore.Interfaces;
+using FlightsCore.Models;
 
 namespace FlightsWeb
 {
@@ -31,7 +32,7 @@ namespace FlightsWeb
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<AcmeFlightsContext>(
-                optionsBuilder=>optionsBuilder.UseSqlServer(Configuration.GetConnectionString("HomeDS")));
+                optionsBuilder => optionsBuilder.UseInMemoryDatabase(databaseName:"AcmeFlights"));
 
             services.Add(new ServiceDescriptor(typeof(IFlightsRepository), typeof(FlightsRepository), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IFlightService), typeof(FlightService), ServiceLifetime.Scoped));
@@ -47,5 +48,6 @@ namespace FlightsWeb
 
             app.UseMvc();
         }
+
     }
 }

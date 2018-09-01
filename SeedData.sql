@@ -1,6 +1,6 @@
 
 insert into Flights values 
-('CA579','Geelong','Lorn','11:35',5),
+('CA579','Geelong','Lorne','11:35',5),
 ('JT231','Dandenong','Emerald','15:20',8)
 
 insert into AvailableSeats values
