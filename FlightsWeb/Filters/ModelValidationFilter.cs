@@ -1,9 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using AcmeFlights.ViewModels;
+using FlightsWeb.ViewModels;
 
-namespace AcmeFlights.Filters
+namespace FlightsWeb.Filters
 {
     public class ModelValidationFilter : ActionFilterAttribute
     {

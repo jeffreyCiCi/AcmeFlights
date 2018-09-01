@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using AcmeFlights.ViewModels;
-using AcmeFlights.BusinessLayer;
-using AcmeFlights.Filters;
+using FlightsWeb.ViewModels;
+using FlightsCore.Interfaces;
+using FlightsWeb.Filters;
 
-namespace AcmeFlights.Controllers
+namespace FlightsWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,15 +22,15 @@ namespace AcmeFlights.Controllers
         }
 
         // GET: api/Flight
-        [HttpGet]
+        [HttpPost]
         [Route("search")]
         [ModelValidationFilter]
-        public async Task<ActionResult<List<AvailableSeatsViewModel>>> AvialableSeats([FromQuery]CheckFlightsViewModel vm)
+        public async Task<ActionResult<AvailableFlightsViewModel>> AvialableSeats([FromBody]CheckFlightsViewModel vm)
         {
             // Since this class is decorated with [ApiController], so no need to validate model state manually
             try
             {
-                var list = await _service.GetAvailableSeatsAsync(vm);
+                var list = await _service.SearchAvailableFlightsAsync(vm.StartDate, vm.EndDate, vm.NumberOfPax);
                 
                 if(list == null)
                 {

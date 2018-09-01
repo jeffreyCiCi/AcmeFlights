@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AcmeFlights.ViewModels
+namespace FlightsWeb.ViewModels
 {
     public class CheckFlightsViewModel
     {

@@ -9,12 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using AcmeFlights.Repository;
-using AcmeFlights.BusinessLayer;
-using AcmeFlights.Models;
+using Infrastructure.Repository;
+using DomainServices.BusinessLogic;
 using Microsoft.EntityFrameworkCore;
+using FlightsCore.Interfaces;
 
-namespace AcmeFlights
+namespace FlightsWeb
 {
     public class Startup
     {

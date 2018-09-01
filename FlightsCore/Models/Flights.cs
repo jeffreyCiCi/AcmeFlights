@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AcmeFlights.Models
+namespace FlightsCore.Models
 {
     public partial class Flights
     {

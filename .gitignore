@@ -24,3 +24,13 @@ AcmeFlights/bin/Debug/netcoreapp2.1/AcmeFlights.deps.json
 AcmeFlights/bin/Debug/netcoreapp2.1/AcmeFlights.runtimeconfig.json
 AcmeFlights/bin/Debug/netcoreapp2.1/AcmeFlights.runtimeconfig.dev.json
 AcmeFlights/obj/Debug/netcoreapp2.1/AcmeFlights.csproj.FileListAbsolute.txt
+DomainServices/bin/
+DomainServices/obj/
+FlightsCore/obj/
+FlightsTest/bin/
+FlightsCore/bin/
+FlightsTest/obj/
+FlightsWeb/bin/
+FlightsWeb/obj/
+Infrastructure/obj/
+Infrastructure/bin/

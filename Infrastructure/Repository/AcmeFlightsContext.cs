@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using FlightsCore.Models;
 
-namespace AcmeFlights.Models
+namespace Infrastructure.Repository
 {
     public partial class AcmeFlightsContext : DbContext
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AcmeFlights.Controllers
+namespace FlightsWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
