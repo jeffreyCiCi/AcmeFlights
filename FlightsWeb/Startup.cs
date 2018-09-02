@@ -48,6 +48,5 @@ namespace FlightsWeb
 
             app.UseMvc();
         }
-
     }
 }

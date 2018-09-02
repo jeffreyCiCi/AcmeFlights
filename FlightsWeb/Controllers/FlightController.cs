@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using FlightsWeb.ViewModels;
 using FlightsCore.Interfaces;
+using FlightsCore.Models;
 using FlightsWeb.Filters;
+using System.Collections.Generic;
 
 namespace FlightsWeb.Controllers
 {
@@ -22,10 +21,10 @@ namespace FlightsWeb.Controllers
         }
 
         // GET: api/Flight
-        [HttpPost]
+        [HttpGet]
         [Route("search")]
         [ModelValidationFilter]
-        public async Task<ActionResult<AvailableFlightsViewModel>> AvialableFlightsAsync([FromBody]CheckFlightsViewModel vm)
+        public async Task<ActionResult<AvailableFlightsViewModel>> AvialableFlightsAsync([FromQuery]CheckFlightsViewModel vm)
         {
             // Since this class is decorated with [ApiController], so no need to validate model state manually
             try
@@ -42,7 +41,9 @@ namespace FlightsWeb.Controllers
                 }
                 else
                 {
-                    return Ok(list);
+                    AvailableFlightsViewModel response = new AvailableFlightsViewModel();
+                    response.FlightList = list;
+                    return Ok(response);
                 }
             }
             catch

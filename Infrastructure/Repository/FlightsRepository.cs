@@ -34,9 +34,9 @@ namespace Infrastructure.Repository
                         VacantSeats = s.VacantSeats
                     }).ToListAsync();
             }
-            catch
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
         }
     }

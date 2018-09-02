@@ -17,15 +17,18 @@ namespace FlightsWeb.Filters
                 // Validate input argument
                 if(vm.StartDate <= DateTime.Now)
                 {
-                    context.Result = new BadRequestObjectResult(new {message="start date cannot be earlier than current date."}); 
+                    context.Result = new BadRequestObjectResult(
+                        new {message="start date cannot be earlier than current date."}); 
                 }
                 else if(vm.EndDate >= DateTime.Now.AddMonths(3))
                 {
-                    context.Result = new BadRequestObjectResult(new {message="End date cannot be later than 3 months from now."}); 
+                    context.Result = new BadRequestObjectResult(
+                        new {message="End date cannot be later than 3 months from now."}); 
                 }
                 else if(vm.EndDate < vm.StartDate)
                 {
-                    context.Result = new BadRequestObjectResult(new {message="End date cannot be earlier than start date."}); 
+                    context.Result = new BadRequestObjectResult(
+                        new {message="End date cannot be earlier than start date."}); 
                 }   
             }
         }

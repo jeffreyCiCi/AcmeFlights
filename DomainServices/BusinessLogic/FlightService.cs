@@ -36,9 +36,9 @@ namespace DomainServices.BusinessLogic
 
                 return resultList;
             }
-            catch
+            catch(Exception e)
             {
-                return null;
+                throw e;
             }
         }
     }

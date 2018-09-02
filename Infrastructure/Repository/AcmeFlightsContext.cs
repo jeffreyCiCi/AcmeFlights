@@ -9,15 +9,13 @@ namespace Infrastructure.Repository
     {
         public AcmeFlightsContext()
         {
+            AddTestData();
         }
 
         public AcmeFlightsContext(DbContextOptions<AcmeFlightsContext> options)
             : base(options)
         {
-            if(!bTestDataAdded)
-            {
-                AddTestData();
-            }
+            AddTestData();
         }
 
         private static bool bTestDataAdded = false;
@@ -66,6 +64,11 @@ namespace Infrastructure.Repository
 
         private void AddTestData()
         {
+            if (bTestDataAdded)
+            {
+                return;
+            }
+
             try
             {
                 Flights.AddRange(

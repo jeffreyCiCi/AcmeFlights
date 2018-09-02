@@ -14,7 +14,7 @@ namespace FlightsWeb.ViewModels
         [DataType( DataType.Date )]
         public DateTime EndDate { get; set;}
 
-        //[Range(1,10)]
+        [Range(1,10)]
         public int NumberOfPax { get; set; }
     }
 }
