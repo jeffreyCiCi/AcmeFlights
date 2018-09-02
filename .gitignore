@@ -34,3 +34,8 @@ FlightsWeb/bin/
 FlightsWeb/obj/
 Infrastructure/obj/
 Infrastructure/bin/
+.vs/AcmeFlights/xs/UserPrefs.xml
+.vs/AcmeFlights/xs/sqlite3/db.lock
+.vs/AcmeFlights/xs/sqlite3/storage.ide
+.vs/AcmeFlights/xs/sqlite3/storage.ide-shm
+.vs/AcmeFlights/xs/sqlite3/storage.ide-wal

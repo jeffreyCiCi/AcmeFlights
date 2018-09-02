@@ -25,7 +25,7 @@ namespace FlightsWeb.Controllers
         [HttpPost]
         [Route("search")]
         [ModelValidationFilter]
-        public async Task<ActionResult<AvailableFlightsViewModel>> AvialableSeats([FromBody]CheckFlightsViewModel vm)
+        public async Task<ActionResult<AvailableFlightsViewModel>> AvialableFlightsAsync([FromBody]CheckFlightsViewModel vm)
         {
             // Since this class is decorated with [ApiController], so no need to validate model state manually
             try
